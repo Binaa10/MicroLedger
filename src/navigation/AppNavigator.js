@@ -7,7 +7,10 @@ import { theme } from '../theme/theme';
 import { ActivityIndicator, View } from 'react-native';
 
 // Placeholder Screens
+import SplashScreen from '../screens/Auth/SplashScreen';
+import LandingScreen from '../screens/Auth/LandingScreen';
 import LoginScreen from '../screens/Auth/LoginScreen';
+import SignupScreen from '../screens/Auth/SignupScreen';
 import TraderDashboard from '../screens/Trader/TraderDashboard';
 import AdminDashboard from '../screens/Admin/AdminDashboard';
 
@@ -29,8 +32,14 @@ const AdminStack = () => (
 );
 
 const AuthStack = () => (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Splash"
+    >
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Landing" component={LandingScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Signup" component={SignupScreen} />
     </Stack.Navigator>
 );
 

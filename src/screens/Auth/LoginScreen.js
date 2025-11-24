@@ -5,7 +5,7 @@ import ScreenWrapper from '../../components/ScreenWrapper';
 import { useAuth } from '../../context/AuthContext';
 import { theme } from '../../theme/theme';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('trader');
@@ -74,6 +74,14 @@ export default function LoginScreen() {
                 >
                     Login
                 </Button>
+
+                <Button
+                    mode="text"
+                    onPress={() => navigation.navigate('Signup')}
+                    style={styles.signupButton}
+                >
+                    Don't have an account? Sign Up
+                </Button>
             </View>
         </ScreenWrapper>
     );
@@ -109,5 +117,8 @@ const styles = StyleSheet.create({
     },
     buttonContent: {
         paddingVertical: 6,
+    },
+    signupButton: {
+        marginTop: 10,
     },
 });
